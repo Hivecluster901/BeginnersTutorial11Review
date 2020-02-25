@@ -40,36 +40,39 @@ void Game::UpdateModel()
 {
     if (wnd.kbd.KeyIsPressed(VK_RIGHT))
     {
-        startingx += 2;
+        xPos++;
     }
     if (wnd.kbd.KeyIsPressed(VK_LEFT))
     {
-        startingx -= 2;
+        xPos--;
     }
     if (wnd.kbd.KeyIsPressed(VK_UP))
     {
-        startingy -= 2;
+        yPos--;
     }
     if (wnd.kbd.KeyIsPressed(VK_DOWN))
     {
-        startingy += 2;
-    }
-    if (wnd.kbd.KeyIsPressed('A'))
-    {
-        sizex += 3;
-    }
-    if (wnd.kbd.KeyIsPressed('D'))
-    {
-        sizex -= 3;
+        yPos++;
     }
     if (wnd.kbd.KeyIsPressed('W'))
     {
-        sizey += 3;
+        height++;
     }
     if (wnd.kbd.KeyIsPressed('S'))
     {
-        sizey -= 3;
+        height--;
     }
+    if (wnd.kbd.KeyIsPressed('D'))
+    {
+        width++;
+    }
+    if (wnd.kbd.KeyIsPressed('A'))
+    {
+        width--;
+    }
+
+
+
 }
 
 void Game::ComposeFrame()
@@ -81,12 +84,12 @@ void Game::ComposeFrame()
             x++;
         }
     */
-
-    for (int x = startingx; x <= startingx + sizex; x++)
+    for (int y = yPos; y < yPos +height; y++)
     {
-        for (int y = startingy; y <= startingy + sizey; y++)
+        for (int x = xPos; x < xPos + width; x++)
         {
             gfx.PutPixel(x, y, 255, 255, 255);
         }
     }
+
 }

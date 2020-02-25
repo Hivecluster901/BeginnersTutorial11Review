@@ -42,7 +42,9 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-    int sizex = 100, sizey = 100;
-    int startingx = 300, startingy = 200;
+    int xPos = 100;
+    int yPos = 100;
+    int width = 100;
+    int height = 100;
 	/********************************/
 };
