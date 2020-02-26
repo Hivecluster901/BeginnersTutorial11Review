@@ -348,6 +348,11 @@ void Graphics::DrawRect(int x0, int y0, int x1, int y1, Color c)
 	}
 }
 
+void Graphics::DrawRectDim(int x0, int y0, int width, int height, Color c)
+{
+	DrawRect(x0, y0, x0 + width, y0 + height, c);
+}
+
 
 //////////////////////////////////////////////////
 //           Graphics Exception

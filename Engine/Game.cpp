@@ -75,6 +75,11 @@ void Game::UpdateModel()
         x1 = wnd.mouse.GetPosX();
         y1 = wnd.mouse.GetPosY();
     }
+    if (wnd.mouse.LeftIsPressed())
+    {
+        width = wnd.mouse.GetPosX() - x0;
+        height = wnd.mouse.GetPosY() - y0;
+    }
 
 
 
@@ -90,5 +95,6 @@ void Game::ComposeFrame()
     //Color C(255, 255, 0);
 
     //gfx.DrawRect(x0, y0, x0 + width, y0 + height, C );
-    gfx.DrawRect(x0, y0, x1, y1, Colors::Cyan);
+    //gfx.DrawRect(x0, y0, x1, y1, Colors::Cyan);
+    gfx.DrawRectDim(x0, y0, width, height, Colors::Magenta);
 }
