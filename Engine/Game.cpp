@@ -40,35 +40,40 @@ void Game::UpdateModel()
 {
     if (wnd.kbd.KeyIsPressed(VK_RIGHT))
     {
-        xPos++;
+        x0++;
     }
     if (wnd.kbd.KeyIsPressed(VK_LEFT))
     {
-        xPos--;
+        x0--;
     }
     if (wnd.kbd.KeyIsPressed(VK_UP))
     {
-        yPos--;
+        y0--;
     }
     if (wnd.kbd.KeyIsPressed(VK_DOWN))
     {
-        yPos++;
+        y0++;
     }
-    if (wnd.kbd.KeyIsPressed('W'))
+    /*if (wnd.kbd.KeyIsPressed('W'))
     {
-        height++;
+        y1++;
     }
     if (wnd.kbd.KeyIsPressed('S'))
     {
-        height--;
+        y1--;
     }
     if (wnd.kbd.KeyIsPressed('D'))
     {
-        width++;
+        x1++;
     }
     if (wnd.kbd.KeyIsPressed('A'))
     {
-        width--;
+        x1--;
+    }*/
+    if (wnd.mouse.LeftIsPressed())
+    {
+        x1 = wnd.mouse.GetPosX();
+        y1 = wnd.mouse.GetPosY();
     }
 
 
@@ -77,19 +82,13 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-    /*int x = 100;
-        while(x < 600)
-        {
-            gfx.PutPixel(x, 100, 255, 255, 255);
-            x++;
-        }
-    */
-    for (int y = yPos; y < yPos +height; y++)
-    {
-        for (int x = xPos; x < xPos + width; x++)
-        {
-            gfx.PutPixel(x, y, 255, 255, 255);
-        }
-    }
+    
+    /*Color C;
+    C.SetR(255);
+    C.SetG(255);
+    C.SetB(0);*/
+    //Color C(255, 255, 0);
 
+    //gfx.DrawRect(x0, y0, x0 + width, y0 + height, C );
+    gfx.DrawRect(x0, y0, x1, y1, Colors::Cyan);
 }
